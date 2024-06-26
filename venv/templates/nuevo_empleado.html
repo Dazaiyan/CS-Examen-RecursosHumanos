@@ -1,0 +1,27 @@
+<!--
+    Agregar Empleado
+-->
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-4">
+    <h1>Agregar Empleado</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="puesto">Puesto</label>
+            <input type="text" class="form-control" id="puesto" name="puesto" required>
+        </div>
+        <div class="form-group">
+            <label for="salario">Salario</label>
+            <input type="number" step="0.01" class="form-control" id="salario" name="salario" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Empleado</button>
+        <a href="{{ url_for('empleados') }}" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,36 @@
+<!--
+    Vista de Departamentos
+-->
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-4">
+    <h1>Gestión de Departamentos</h1>
+    <a href="{{ url_for('nuevo_departamento') }}" class="btn btn-primary">Agregar Departamento</a>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Ubicación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departamento in departamentos %}
+            <tr>
+                <td>{{ departamento[0] }}</td>
+                <td>{{ departamento[1] }}</td>
+                <td>{{ departamento[2] }}</td>
+                <td>
+                    <a href="{{ url_for('editar_departamento', id=departamento[0]) }}" class="btn btn-info">Editar</a>
+                    <form action="{{ url_for('eliminar_departamento', id=departamento[0]) }}" method="post" style="display:inline-block;">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

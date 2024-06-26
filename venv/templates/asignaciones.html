@@ -1,0 +1,38 @@
+<!--
+    Vista de Asignaciones
+-->
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-4">
+    <h1>Gestión de Asignaciones</h1>
+    <a href="{{ url_for('nueva_asignacion') }}" class="btn btn-primary">Agregar Asignación</a>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Empleado</th>
+                <th>Departamento</th>
+                <th>Fecha de Asignación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asignacion in asignaciones %}
+            <tr>
+                <td>{{ asignacion[0] }}</td>
+                <td>{{ asignacion[1] }}</td>
+                <td>{{ asignacion[2] }}</td>
+                <td>{{ asignacion[3] }}</td>
+                <td>
+                    <a href="{{ url_for('editar_asignacion', id=asignacion[0]) }}" class="btn btn-info">Editar</a>
+                    <form action="{{ url_for('eliminar_asignacion', id=asignacion[0]) }}" method="post" style="display:inline-block;">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
