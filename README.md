@@ -66,13 +66,11 @@ CREATE TABLE Asignaciones (
     FOREIGN KEY (empleado_id) REFERENCES Empleados(id),
     FOREIGN KEY (departamento_id) REFERENCES Departamentos(id)
 );
-
 ```
 
 ## Ejecuta la aplicación:
 ```
 python app.py
-
 ```
 
 # Uso
